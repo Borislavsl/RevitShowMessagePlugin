@@ -1,0 +1,39 @@
+﻿<?xml version="1.0" encoding="utf-8" standalone="no"?>
+<RevitAddIns>
+  <AddIn Type="Command">
+    <Name>ShowMessagePlugin</Name>
+    <Assembly>ShowMessagePlugin\ShowMessagePlugin.dll</Assembly>
+    <AddInId>
+      C8A624E9-EE33-4FC8-AD32-4E70D548217B
+    </AddInId>
+    <FullClassName>ShowMessagePlugin.ShowMessageBox</FullClassName>
+    <Text>ShowMessageBox</Text>
+    <Description>Shows a Message Box</Description>
+    <VendorId>Borislav</VendorId>
+    <VendorDescription>@BSlavov</VendorDescription>
+    <VisibilityMode>AlwaysVisible</VisibilityMode>
+  </AddIn>
+  <AddIn Type="Command">
+    <Name>ShowMessagePlugin</Name>
+    <Assembly>ShowMessagePlugin\ShowMessagePlugin.dll</Assembly>
+    <AddInId>
+      43CFEB47-D50C-4EEF-91BD-E4D076620871
+    </AddInId>
+    <FullClassName>ShowMessagePlugin.ShowModelText</FullClassName>
+    <Text>ShowModelText</Text>
+    <Description>Shows a text in document</Description>
+    <VendorId>Jeremy</VendorId>
+    <VendorDescription>@BSlavov</VendorDescription>
+    <VisibilityMode>NotVisibleWhenNoActiveDocument</VisibilityMode>
+  </AddIn>
+  <AddIn Type="Application">
+    <Name>ShowMessagePlugin</Name>
+    <Assembly>ShowMessagePlugin\ShowMessagePlugin.dll</Assembly>
+    <AddInId>
+      781E4984-3ECE-4A20-AE29-2DB4765E8F4A
+    </AddInId>
+    <FullClassName>ShowMessagePlugin.ShowMessageCreatePlugin</FullClassName>
+    <VendorId>Borislav</VendorId>
+    <VendorDescription>@BSlavov</VendorDescription>
+  </AddIn>
+</RevitAddIns>

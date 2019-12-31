@@ -4,11 +4,11 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{E85DFD4F-32C6-4C78-B99A-367CA53EE07D}</ProjectGuid>
+    <ProjectGuid>{8EFF7177-E307-45C8-B709-200D8ED06C3A}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>ShowMessagePlugin</RootNamespace>
-    <AssemblyName>ShowMessagePlugin</AssemblyName>
+    <RootNamespace>ShowMessageUtilities</RootNamespace>
+    <AssemblyName>ShowMessageUtilities</AssemblyName>
     <TargetFrameworkVersion>v4.7.1</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <Deterministic>true</Deterministic>
@@ -30,19 +30,7 @@
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
-  <PropertyGroup>
-    <ApplicationManifest>ShowMessagePlugin.addin</ApplicationManifest>
-  </PropertyGroup>
   <ItemGroup>
-    <Reference Include="PresentationCore" />
-    <Reference Include="RevitAPI">
-      <HintPath>C:\Program Files\Autodesk\Revit 2020\RevitAPI.dll</HintPath>
-      <Private>False</Private>
-    </Reference>
-    <Reference Include="RevitAPIUI">
-      <HintPath>C:\Program Files\Autodesk\Revit 2020\RevitAPIUI.dll</HintPath>
-      <Private>False</Private>
-    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
@@ -53,34 +41,9 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Commands\ShowMessageBox.cs" />
-    <Compile Include="ShowMessageCreatePlugin.cs" />
+    <Compile Include="ShowMessageButton.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-  </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\ShowMessageUtilities\ShowMessageUtilities.csproj">
-      <Project>{8eff7177-e307-45c8-b709-200d8ed06c3a}</Project>
-      <Name>ShowMessageUtilities</Name>
-    </ProjectReference>
-  </ItemGroup>
-  <ItemGroup>
-    <EmbeddedResource Include="Resources\modelspace.jpg" />
-  </ItemGroup>
-  <ItemGroup>
-    <EmbeddedResource Include="Resources\revit.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="ShowMessagePlugin.addin" />
-  </ItemGroup>
-  <ItemGroup>
-    <Content Include="Resources\messagebox.png" />
+    <Compile Include="Utils.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
-  <PropertyGroup>
-    <PostBuildEvent>if not exist "$(AppData)\Autodesk\Revit\Addins\2020\$(TargetName)\" mkdir "$(AppData)\Autodesk\Revit\Addins\2020\$(TargetName)\"
-copy "$(TargetDir)"."" "$(AppData)\Autodesk\Revit\Addins\2020\$(TargetName)\"
-if not exist "$(AppData)\Autodesk\Revit\Addins\2020\$(TargetName)\Resources\" mkdir "$(AppData)\Autodesk\Revit\Addins\2020\$(TargetName)\Resources\"
-copy "$(ProjectDir)Resources\*.*" "$(AppData)\Autodesk\Revit\Addins\2020\$(TargetName)\Resources\"
-copy "$(ProjectDir)$(TargetName).addin" "$(AppData)\Autodesk\Revit\Addins\2020\"</PostBuildEvent>
-  </PropertyGroup>
 </Project>
