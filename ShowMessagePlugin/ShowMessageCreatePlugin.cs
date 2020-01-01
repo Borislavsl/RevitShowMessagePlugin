@@ -6,7 +6,6 @@ using Autodesk.Revit.ApplicationServices;
 using Autodesk.Revit.DB.Events;
 using static ShowMessageUtilities.Utils;
 using ShowMessageUtilities;
-using Autodesk.Revit.DB;
 
 namespace ShowMessagePlugin
 {
