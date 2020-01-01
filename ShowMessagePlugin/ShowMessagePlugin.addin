@@ -22,7 +22,7 @@
     <FullClassName>ShowMessagePlugin.ShowModelText</FullClassName>
     <Text>ShowModelText</Text>
     <Description>Shows a text in document</Description>
-    <VendorId>Jeremy</VendorId>
+    <VendorId>Borislav</VendorId>
     <VendorDescription>@BSlavov</VendorDescription>
     <VisibilityMode>NotVisibleWhenNoActiveDocument</VisibilityMode>
   </AddIn>

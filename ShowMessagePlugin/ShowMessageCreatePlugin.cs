@@ -2,8 +2,11 @@
 using System.Reflection;
 using System.Windows.Media.Imaging;
 using Autodesk.Revit.UI;
+using Autodesk.Revit.ApplicationServices;
+using Autodesk.Revit.DB.Events;
 using static ShowMessageUtilities.Utils;
 using ShowMessageUtilities;
+using Autodesk.Revit.DB;
 
 namespace ShowMessagePlugin
 {
@@ -13,8 +16,10 @@ namespace ShowMessagePlugin
         {            
             RibbonPanel ribbonPanel = application.CreateRibbonPanel("ShowMessage");
 
-            AddSplitButtonGroup(ribbonPanel);            
-            
+            AddSplitButtonGroup(ribbonPanel);
+
+            application.ControlledApplication.ApplicationInitialized += OnApplicationInitialized;
+
             return Result.Succeeded;
         }
 
@@ -44,6 +49,14 @@ namespace ShowMessagePlugin
 
             if (currentButton)
                 splitButton.CurrentButton = button;
+        }
+
+        private void OnApplicationInitialized(object sender, ApplicationInitializedEventArgs e)
+        {
+            var app = sender as Application;            
+            var uiapp = new UIApplication(app);
+
+            uiapp.OpenAndActivateDocument(GetTestDocumentPath());
         }
 
         public Result OnShutdown(UIControlledApplication application)

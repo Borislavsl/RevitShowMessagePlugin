@@ -54,6 +54,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Commands\ShowMessageBox.cs" />
+    <Compile Include="Commands\ShowModelText.cs" />
     <Compile Include="ShowMessageCreatePlugin.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -70,6 +71,7 @@
     <EmbeddedResource Include="Resources\revit.png" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="Resources\ShowMessageFamily.rfa" />
     <None Include="ShowMessagePlugin.addin" />
   </ItemGroup>
   <ItemGroup>
