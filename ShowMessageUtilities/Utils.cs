@@ -20,11 +20,5 @@ namespace ShowMessageUtilities
                                                   };
             return buttons;
         }
-
-        public static string GetTestDocumentPath()
-        {
-            string appData = Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData);
-            return Path.Combine(appData, "Autodesk", "Revit", "Addins", "2020", "ShowMessagePlugin", "Resources", "ShowMessageFamily.rfa");
-        }
     }
 }

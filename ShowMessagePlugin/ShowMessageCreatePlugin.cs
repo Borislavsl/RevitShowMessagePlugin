@@ -15,9 +15,7 @@ namespace ShowMessagePlugin
         {            
             RibbonPanel ribbonPanel = application.CreateRibbonPanel("ShowMessage");
 
-            AddSplitButtonGroup(ribbonPanel);
-
-            application.ControlledApplication.ApplicationInitialized += OnApplicationInitialized;
+            AddSplitButtonGroup(ribbonPanel);          
 
             return Result.Succeeded;
         }
@@ -48,14 +46,6 @@ namespace ShowMessagePlugin
 
             if (currentButton)
                 splitButton.CurrentButton = button;
-        }
-
-        private void OnApplicationInitialized(object sender, ApplicationInitializedEventArgs e)
-        {
-            var app = sender as Application;            
-            var uiapp = new UIApplication(app);
-
-            uiapp.OpenAndActivateDocument(GetTestDocumentPath());
         }
 
         public Result OnShutdown(UIControlledApplication application)

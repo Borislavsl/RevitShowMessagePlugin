@@ -71,7 +71,6 @@
     <EmbeddedResource Include="Resources\revit.png" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\ShowMessageFamily.rfa" />
     <None Include="ShowMessagePlugin.addin" />
   </ItemGroup>
   <ItemGroup>
