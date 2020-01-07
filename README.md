@@ -15,7 +15,7 @@ It creates the plugin in $(AppData)Autodesk\Revit\Addins\2020\ShowMessagePlugin\
 Open an existing Family file (for example from C:\Program Files\Autodesk\Revit 2020\Samples\ folder) and activate Add-ins tab.
 A new panel Show Message containing a split button with two command buttons are added in Add-ins. Clicking on them, they execute respectively:
 
-- A command which displays a Windows form.
+- A command which displays a Message box.
 
 - A command which adds a 'Show Message' Model Text to the opened family document.
 
