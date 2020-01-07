@@ -1,9 +1,5 @@
-﻿using System;
-using System.Reflection;
-using System.Windows.Media.Imaging;
+﻿using System.Reflection;
 using Autodesk.Revit.UI;
-using Autodesk.Revit.ApplicationServices;
-using Autodesk.Revit.DB.Events;
 using static ShowMessageUtilities.Utils;
 using ShowMessageUtilities;
 
@@ -15,38 +11,17 @@ namespace ShowMessagePlugin
         {            
             RibbonPanel ribbonPanel = application.CreateRibbonPanel("ShowMessage");
 
-            AddSplitButtonGroup(ribbonPanel);          
+            string assemblyPath = Assembly.GetExecutingAssembly().Location;
+            string smallBitmapFileName = "revit.png";
+
+            var buttons = new PluginCommandButton[] { new PluginCommandButton("button1Name", "Message Box", assemblyPath, "ShowMessagePlugin.Commands.ShowMessageBox", smallBitmapFileName, "messagebox.png", "Opens a Windows form", true, true),
+                                                      new PluginCommandButton("button2Name", "Model Text",  assemblyPath, "ShowMessagePlugin.Commands.ShowModelText",  smallBitmapFileName, "modelspace.jpg",  "Add text to model space")
+                                                    };
+
+            RevitAPI.AddSplitButtonGroup(ribbonPanel, "SplitGroup1", "Show Message", buttons);          
 
             return Result.Succeeded;
-        }
-
-        private void AddSplitButtonGroup(RibbonPanel panel)
-        {            
-            var groupData = new SplitButtonData("SplitGroup1", "Show Message");
-            var splitButton = panel.AddItem(groupData) as SplitButton;
-
-            ShowMessageButton[] buttons = GetShowMessageButtons();
-            foreach (ShowMessageButton button in buttons)
-                AddCommandButton(splitButton, button.Name, button.Text, button.Command, button.SmallBitmapPath, button.LargeBitmapPath, button.Tooltip, button.AddSeparator, button.CurrentButton);            
-        }
-
-        private void AddCommandButton(SplitButton splitButton, string name, string text, string command, string smallBitmapPath, string largeBitmapPath, string tooltip, bool addSeparator, bool currentButton)
-        {
-            string thisAssemblyPath = Assembly.GetExecutingAssembly().Location;
-
-            var buttonData = new PushButtonData(name, text, thisAssemblyPath, command);
-
-            var button = splitButton.AddPushButton(buttonData) as PushButton;         
-            button.ToolTip = tooltip;            
-            button.Image = new BitmapImage(new Uri(smallBitmapPath));            
-            button.LargeImage = new BitmapImage(new Uri(largeBitmapPath));
-
-            if (addSeparator)
-                splitButton.AddSeparator();
-
-            if (currentButton)
-                splitButton.CurrentButton = button;
-        }
+        }      
 
         public Result OnShutdown(UIControlledApplication application)
         {

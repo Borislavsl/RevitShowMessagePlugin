@@ -2,7 +2,7 @@
 using Autodesk.Revit.DB;
 using Autodesk.Revit.UI;
 
-namespace ShowMessagePlugin
+namespace ShowMessagePlugin.Commands
 {
     [Transaction(TransactionMode.Manual)]
     public class ShowMessageBox : IExternalCommand
