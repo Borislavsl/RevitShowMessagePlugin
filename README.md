@@ -5,8 +5,9 @@ Prerequisites
 
 1. Installed Revit 2020
 
-2. Properties Debug section of both projects ShowMessagePlugin and UninstallShowMessagePlugin,
-"Start external program" should be checked with C:\Program Files\Autodesk\Revit 2020\Revit.exe
+2. After installing the plugin, check in Properties Debug section of ShowMessagePlugin project the
+"Start external program" option to start C:\Program Files\Autodesk\Revit 2020\Revit.exe.
+Do the same with and UninstallShowMessagePlugin project.
 
 Start the project ShowMessagePlugin.
 
